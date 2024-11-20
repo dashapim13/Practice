@@ -27,19 +27,7 @@
         //        a = b;
         //        b = next;
         //    }
-        //In class work
-        //[1, 1, , 2, 3, , 5, , 8, 13, 21]
-        //public static Fib(int num)
-        //{
-        //    int a = 1; Console.WriteLine(a);
-        //    int b = 1; Console.WriteLine(b);
-        //    int c = 0;
-        //    while (c < num)
-        //    {
-        //        c = a + b; Console.WriteLine(c);
-        //        a = b; b = c;
-        //    }
-        //}
+      
         static void Main(string[] args)
         {
             int[] nums = { 2, 7, 11, 15 };
