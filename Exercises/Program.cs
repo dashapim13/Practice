@@ -97,36 +97,78 @@
 
 
 
-        // Palindrome Number String-Based Solution
-        static bool IsPalindrome(int x)
+        Palindrome Number Math-Based Solution 2
+
+        public static bool IsPalindrome(int x)
         {
-            // Negative numbers cannot be palindromes
-            if (x < 0) return false;
 
-            //Convert the number to a string
-            string original = x.ToString();
-            
-            //Reverse the string
+            //Negative numbers and numbers ending in 0 (except O itself) are not palindromes)
+            if (x < 0 || (x % 10 == 0 && x != 0))
+            {
+                return false;
+            }
+            int reversed = 0;
+            int original = x;
 
-            char[] charArray = original.ToCharArray();
-            Array.Reverse(charArray);
-            string reversed = new string(charArray);
+            while (x > 0)
+            {
+                reversed = reversed * 10 + x % 10;  //Append the last digit to reversed number 
 
-            //Check if the original and reversed strings are the same
-            return original == reversed;
+                x /= 10;        // Remove the last digit from x
+            }
+
+
+            // Check if the reversed number is equal to the original number
+            return reversed == original;
+
         }
 
         static void Main(string[] args)
-
         {
-            Console.WriteLine(IsPalindrome(121));   //Output: True
-            Console.WriteLine(IsPalindrome(-121));  //Output: False
-            Console.WriteLine(IsPalindrome(10));    //Output: False
+            //Test the IsPalindrome method
+            Console.WriteLine("Enter an integer to check if it's a palindrome: ");
+            int number = int.Parse(Console.ReadLine());
+
+            bool result = IsPalindrome(number);
+            Console.WriteLine(result
+                ? $"{number} is a palindrome."
+                : $"{number} is not a palindrome.");
+
+        }
+
+        Number Palindrome String-based solution
+
+
+            public static bool IsPalindrome(int x)
+        {
+            // Convert the integer to a string
+            string str = x.ToString();
+
+            // Compare the string with its reverse
+            string reversedStr = new string(str.Reverse().ToArray());
+
+            return str == reversedStr;
+        }
+
+        static void Main(string[] args)
+        {
+            // Test the IsPalindrome method
+            Console.WriteLine("Enter an integer to check if it's a palindrome: ");
+            int number = int.Parse(Console.ReadLine());
+
+            bool result = IsPalindrome(number);
+            Console.WriteLine(result
+                ? $"{number} is a palindrome."
+                : $"{number} is not a palindrome.");
         }
 
 
     }
+
+
+
 }
+
 
 
 
